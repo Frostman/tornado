@@ -203,6 +203,8 @@ class OpenIdMixin(object):
             user["locale"] = locale
         if username:
             user["username"] = username
+        if self.get_argument("openid.claimed_id"):
+            user["claimed_id"] = self.get_argument("openid.claimed_id")
         callback(user)
 
 
